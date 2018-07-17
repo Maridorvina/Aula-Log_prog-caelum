@@ -1,0 +1,52 @@
+<meta charset="UTF-8">
+<h1>Calculando Imc's</h1>
+
+<script>
+
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        return document.write(frase);
+        pulaLinha();
+    }
+
+    function pegaNumero(frase) {
+        return parseFloat(prompt (frase).replace("," , "."));
+        pulaLinha();
+    }
+
+    var nome = prompt("Qual é o seu nome? ");
+    
+    var altura = pegaNumero("Qual é a sua altura? ");
+
+    var peso = pegaNumero("Qual é o seu peso? ");    
+    
+    var imcTotal = peso / Math.pow(altura, 2);
+
+    //.toFixed(mostra apenas duas casas após a ",") .replace(converte ponto"." em vírgula"," e vírgula em ponto) 
+    mostra(nome + ", o seu imc é: " + imcTotal.toFixed(2).replace("." , ",") + "!<br><br>");
+    
+
+    //SE está abaixo do peso escreva...
+    if (imcTotal < 18.5) {
+        mostra("Você está abaixo do peso recomendado.");
+        pulaLinha();
+    }
+
+    //SE está peso ideal escreva...
+    if (imcTotal > 18.5 && imcTotal <= 25 ) {
+        mostra("Você está com o peso ideal.");
+        pulaLinha();
+    }
+
+    //SE está acima do peso recomendado escreva...
+    if (imcTotal >= 25 && imcTotal > 30 ) {
+        mostra("Você está acima do peso recomendado.");
+        pulaLinha();        
+    }
+
+    mostra("FIM");
+
+</script>
